@@ -1,5 +1,5 @@
 {% set name = "streamlit_passwordless" %}
-{% set version = "0.18.0" %}
+{% set version = "0.19.0" %}
 {% set pyproject = load_file_data('pyproject.toml') %}
 {% set requires_python = pyproject.get('project', {}).get('requires-python', '') %}
 {% set python_min = requires_python|replace('>=', '') %}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9207ae00552222406087de1be383db24d39f100722f3c7238dcfcc4ad89b0dd2
+  sha256: f750152ab74f9127019ef80a89363e45a5299c885d2d91144adc8ca5a404b0a0
 
 build:
   number: 0
@@ -27,8 +27,7 @@ requirements:
   run:
     - python >={{ python_min }}
     - click >=8.0
-    # Running the streamlit_passwordless custom component does not work with Streamlit v1.34 using conda.
-    - streamlit >=1.24,!=1.34
+    - streamlit >=1.51
     - passwordless >=0.1
     - pydantic >=2.0
     - sqlalchemy >=2.0
